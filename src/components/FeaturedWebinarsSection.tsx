@@ -3,6 +3,7 @@ import React from 'react'
 import { HoverEffect } from './ui/card-hover-effect';
 import { title } from 'process';
 import Link from 'next/link';
+import { Interface } from 'readline';
 
 
 const featuredWebinars = [
@@ -51,6 +52,13 @@ const featuredWebinars = [
     },
   ];
 
+  interface Card{
+      title: string,
+      description:string,
+      slug:string,
+      isFeatured: boolean,
+  } 
+
 
 export const FeaturedWebinarsSection = () => {
   return (
@@ -63,7 +71,7 @@ export const FeaturedWebinarsSection = () => {
 
             <div className='flex flex-wrap w-[80%]'>
                 <HoverEffect 
-                    items={featuredWebinars.map(webinar=>(
+                    items={featuredWebinars.map((webinar:Card)=>(
                        {
                         title:webinar.title,
                         description: webinar.description,
